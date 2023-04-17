@@ -1,0 +1,65 @@
+<table class="border-collapse w-[78rem] h-[100%] mb-2 ml-[-30rem]">
+  <thead class="bg-gradient-to-r from-violet-500 to-fuchsia-500">
+    <tr>
+      <th class="p-3 font-bold uppercase text-gray-600 border border-gray-300">
+        Title and Sub-title
+      </th>
+      <th class="p-3 font-bold uppercase text-gray-600 border border-gray-300">
+        Author
+      </th>
+      <th class="p-3 font-bold uppercase text-gray-600 border border-gray-300">
+        Year of publication
+      </th>
+    </tr>
+  </thead>
+
+  <tbody
+    *ngFor="
+      let data of ty
+        | paginate
+          : {
+              itemsPerPage: 10,
+              currentPage: page,
+              totalItems: 100
+            }
+    "
+  >
+    <tr
+      class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0"
+    >
+      <td
+        class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static"
+      >
+        <span
+          class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"
+          >Company name</span
+        >{{ data.title }}
+      </td>
+      <td
+        class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"
+      >
+        <span
+          class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"
+          >Country</span
+        >{{ data.author_name }}
+      </td>
+      <td
+        class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"
+      >
+        <span
+          class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"
+          >Status</span
+        >{{ data.first_publish_year }}
+        <span class="py-1 px-3 text-xl font-bold"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls
+  (pageChange)="handlePageChange($event)"
+  previousLabel="Prev"
+  nextLabel="Next"
+  responsiv:boolene="true"
+  class="text-2xl"
+></pagination-controls>
+<div></div>

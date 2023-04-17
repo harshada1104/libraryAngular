@@ -1,0 +1,10 @@
+<div>
+  <input
+    type="text"
+    placeholder="Search here"
+    class="text-center border-2 w-[34rem] h-[3rem]"
+    [(ngModel)]="enteredSearchedValue"
+    (input)="onSearchTextChanged()"
+    (keyup.enter)="submitSearch(enteredSearchedValue)"
+  />
+</div>
